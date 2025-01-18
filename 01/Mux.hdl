@@ -12,4 +12,9 @@ CHIP Mux {
 
     PARTS:
     //// Replace this comment with your code.
+    Not(in=sel , out=notSel );
+    And(a=a , b=notSel, out=aSel ); // if a is selected, b here represents the Sel port
+    And(a=b , b=sel , out=bSel );   // if b is selected, b here represents the Sel port
+    Or(a=aSel , b=bSel , out=out );
+    
 }
